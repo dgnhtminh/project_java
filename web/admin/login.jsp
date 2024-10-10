@@ -12,6 +12,19 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>This is admin login</h1>
+        <h1>Đăng nhập</h1>
+        <%
+            if(request.getAttribute("error") != null){
+                String er = (String)request.getAttribute("error");
+        %>
+        <h3 style="color: red"><%= er %></h3>
+        <%
+            }
+        %>
+        <form action="${pageContext.request.contextPath}/admin-login" method="post">
+            Username:<input type="text" name="user"/><br/>
+            Password:<input type="password" name="pass"/><br/>
+            <input type="submit" value="SUBMIT"/><br/>
+        </form>
     </body>
 </html>

@@ -6,8 +6,10 @@ package controller.admin;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.DecimalFormat;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,6 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Hacom
  */
+@WebServlet(name = "AdminHomeController", urlPatterns = {"admin/home.jsp"})
 public class AdminHomeController extends HttpServlet {
 
     /**
@@ -30,8 +33,7 @@ public class AdminHomeController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-          response.setContentType("text/html;charset=UTF-8");
-         RequestDispatcher dis=request.getRequestDispatcher("admin/home.jsp");
+        request.getRequestDispatcher("admin/home.jsp");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -46,7 +48,7 @@ public class AdminHomeController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        request.getRequestDispatcher("admin/home.jsp").forward(request, response);
     }
 
     /**
@@ -60,7 +62,7 @@ public class AdminHomeController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        request.getRequestDispatcher("admin/home.jsp").forward(request, response);
     }
 
     /**

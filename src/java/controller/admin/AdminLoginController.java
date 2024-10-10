@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -31,8 +32,7 @@ public class AdminLoginController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
       
-         RequestDispatcher dis=request.getRequestDispatcher("admin/login.jsp");
-        dis.forward(request, response);
+//        request.getRequestDispatcher("admin/login.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -47,7 +47,7 @@ public class AdminLoginController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        request.getRequestDispatcher("admin/login.jsp").forward(request, response);
     }
 
     /**
@@ -61,7 +61,19 @@ public class AdminLoginController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        //lay tu form: username and password
+        String u = request.getParameter("user");
+        String p = request.getParameter("pass");
+        //lay tu web.xml: username and password
+        String u_init = getServletContext().getInitParameter("user");
+        String p_init = getServletContext().getInitParameter("pass");
+        if(u.equalsIgnoreCase(u_init) && p.equals(p_init)){
+            request.getRequestDispatcher("admin/index.jsp").forward(request, response);
+        }else{
+            String ms="Tài khoản hoặc mật khẩu không đúng!";
+            request.setAttribute("error", ms);
+            request.getRequestDispatcher("admin/login.jsp").forward(request, response);
+        }
     }
 
     /**

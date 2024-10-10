@@ -6,12 +6,21 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Rentinfor</title>
+        <link rel="stylesheet" href="<%= request.getContextPath() %>/css/admin.css">
     </head>
+    
     <body>
-        <h1>This is admin rentinfor</h1>
+        <div class="sidebar">
+            <%@include file="sider.jsp"%>
+        </div>
+
+        <div class="content">
+            <h1>Trang rentinfor</h1>
+        </div>
     </body>
 </html>
