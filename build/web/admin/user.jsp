@@ -4,6 +4,8 @@
     Author     : Hacom
 --%>
 
+<%@page import="model.User"%>
+<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -14,6 +16,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>User</title>
         <link rel="stylesheet" href="<%= request.getContextPath()%>/css/admin.css">
+        <script type="text/javascript">
+            function doDelete(id){
+                if(confirm("Are you sure to delete a user ?")){
+                    window.location="delete-user?id=" +id;
+                }
+            }
+        </script>
     </head>
 
     <body>
@@ -23,7 +32,8 @@
 
         <div class="content">
             <h1>Trang User</h1>
-            <table border="1px" width="40%">
+            <h3><a href="create-user">Add new a user</a></h3>
+            <table border="1px" width="90%">
                 <tr>
                     <th>Id_user</th>
                     <th>Username</th>
@@ -32,29 +42,27 @@
                     <th>Date_of_bird</th>
                     <th>Role</th>
                     <th>Status</th>
+                    <th>Action</th>
                 </tr>
-                <c:forEach items="${requestScope.data}" var="c">
-                    <c:set var="id" value="${c.id_user}"/>
-                    <tr>
-                        <td>${id}</td>
-                        <td>${c.username}</td>
-                        <td>${c.password}</td>
-                        <td>${c.name}</td>
-                        <td>${c.date_of_bird}</td>
-                        <td>${c.role}</td>
-                        <td>${c.status}</td>
-                    </tr>
-                </c:forEach>
-                <c:if test="${not empty requestScope.data}">
-                    <c:forEach items="${requestScope.data}" var="c">
-                        <!-- Vòng lặp hiển thị dữ liệu -->
-                    </c:forEach>
-                </c:if>
-                <c:if test="${empty requestScope.data}">
-                    <p>Không có dữ liệu để hiển thị</p>
-                </c:if>
-
-
+                <% List<User> users = (List<User>)request.getAttribute("data"); %>
+                <% for(User x : users){
+                %>
+                <tr>
+                    <td><%= x.getId_user() %></td>
+                    <td><%= x.getUsername() %></td>
+                    <td><%= x.getPassword() %></td>
+                    <td><%= x.getName() %></td>
+                    <td><%= x.getDate() %></td>
+                    <td><%= x.getRole() %></td>
+                    <td><%= x.getStatus() %></td>
+                    <tD>
+                        <a href="update-user?id=<%= x.getId_user() %>">Update</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="#" onclick="doDelete(<%= x.getId_user() %>)">Delete</a>
+                    </tD>
+                </tr>
+                <%
+                   }
+                %>
             </table>
         </div>
     </body>

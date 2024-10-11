@@ -12,13 +12,13 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h2><a href="index.jsp">ADMIN</a></h2>
+        <h2><a href="admin">ADMIN</a></h2>
         <ul>
-            <li><a href="home.jsp">Quản lý</a></li>
-            <li><a href="user.jsp">User</a></li>
-            <li><a href="contact.jsp">Contact</a></li>
-            <li><a href="rentinfor.jsp">Rentinfor</a></li>
-            <li><a href="car.jsp">Car</a></li>
+            <li><a href="admin-home">Quản lý</a></li>
+            <li><a href="admin-user">User</a></li>
+            <li><a href="admin-contact">Contact</a></li>
+            <li><a href="admin-rentinfor">Rentinfor</a></li>
+            <li><a href="admin-car">Car</a></li>
         </ul>
         <div class="logout">
             <a href="${pageContext.request.contextPath}/admin-login" 

@@ -92,6 +92,30 @@
         <servlet-name>AdminHomeController</servlet-name>
         <servlet-class>controller.admin.AdminHomeController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CreateUser</servlet-name>
+        <servlet-class>controller.admin.CreateUser</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminIndexController</servlet-name>
+        <servlet-class>controller.admin.AdminIndexController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CreateUserController</servlet-name>
+        <servlet-class>controller.admin.CreateUserController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminCreateUserController</servlet-name>
+        <servlet-class>controller.admin.AdminCreateUserController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminDeleteUserController</servlet-name>
+        <servlet-class>controller.admin.AdminDeleteUserController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminUpdateUserController</servlet-name>
+        <servlet-class>controller.admin.AdminUpdateUserController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -184,19 +208,33 @@
         <servlet-name>AdminHomeController</servlet-name>
         <url-pattern>/admin-home</url-pattern>
     </servlet-mapping>
-     
+    <servlet-mapping>
+        <servlet-name>AdminIndexController</servlet-name>
+        <url-pattern>/admin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminCreateUserController</servlet-name>
+        <url-pattern>/create-user</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminDeleteUserController</servlet-name>
+        <url-pattern>/delete-user</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminUpdateUserController</servlet-name>
+        <url-pattern>/update-user</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
-    
-    <context-param>
+    <!--    <context-param>
         <param-name>user</param-name>
         <param-value>minh16</param-value>
     </context-param>
     <context-param>
         <param-name>pass</param-name>
         <param-value>123</param-value>
-    </context-param>
+    </context-param>-->
 </web-app>
