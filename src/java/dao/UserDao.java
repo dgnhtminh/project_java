@@ -15,21 +15,22 @@ import java.sql.SQLException;
  *
  * @author Hacom
  */
-public class UserDao extends DBcontext{
+public class UserDao extends DBcontext {
+
     public List<User> getAll() {
         List<User> list = new ArrayList<>();
         String sql = "SELECT * FROM rentcar.user;";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 User u = new User(rs.getInt("id_user"),
-                                  rs.getString("username"),
-                                  rs.getString("password"),
-                                  rs.getString("name"),
-                                  rs.getString("date_of_bird"),
-                                  rs.getInt("role"),
-                                  rs.getInt("status"));
+                        rs.getString("username"),
+                        rs.getString("password"),
+                        rs.getString("name"),
+                        rs.getString("date_of_bird"),
+                        rs.getInt("role"),
+                        rs.getInt("status"));
                 list.add(u);
             }
         } catch (SQLException e) {
@@ -37,10 +38,85 @@ public class UserDao extends DBcontext{
         }
         return list;
     }
+
+    //insert user
+    public void insert(User u) {
+        String sql = "INSERT INTO user (username, password, name, date_of_bird, role) \n"
+                + "VALUES(?, ?, ?, ?, ?)";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+
+            st.setString(1, u.getUsername());
+            st.setString(2, u.getPassword());
+            st.setString(3, u.getName());
+            st.setString(4, u.getDate());
+            st.setInt(5, u.getRole());
+
+            st.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
+
+    //tim 1 user khi co id
+    public User getUserById(int id) {
+        String sql = "SELECT * FROM user WHERE id_user = ?;";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setInt(1, id);
+            ResultSet rs = st.executeQuery();
+            if (rs.next()) {
+                User u = new User(rs.getInt("id_user"),
+                        rs.getString("username"),
+                        rs.getString("password"),
+                        rs.getString("name"),
+                        rs.getString("date_of_bird"),
+                        rs.getInt("role"),
+                        rs.getInt("status"));
+                return u;
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return null;
+    }
+
+    //delete user
+    public void delete(int id) {
+        String sql = "DELETE FROM user WHERE id_user = ?";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setInt(1, id);
+            st.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
+
+    //update user
+    public void update(User u) {
+        String sql = "UPDATE user\n"
+                + "SET username=?, password=?, name=?, date_of_bird=?,role=?,status=?\n"
+                + "WHERE id_user = ?;";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setString(1, u.getUsername());
+            st.setString(2, u.getPassword());
+            st.setString(3, u.getName());
+            st.setString(4, u.getDate());
+            st.setInt(5, u.getRole());
+            st.setInt(6, u.getStatus());
+            st.setInt(7, u.getId_user());
+            st.executeUpdate();
+        } catch(SQLException e){
+            System.out.println(e);
+        }
+    }
+
     public static void main(String[] args) {
         UserDao c = new UserDao();
         List<User> list = c.getAll();
-        for(User x : list) {
+        for (User x : list) {
             System.out.println(x);
         }
     }
