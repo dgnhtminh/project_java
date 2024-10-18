@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Create User</title>
     </head>
     <body>
         <h1>Add new a user</h1>
@@ -18,7 +18,7 @@
             Username:<input type="text" name="username" required/><br/>
             Password:<input type="text" name="password" required/><br/>
             Name:<input type="text" name="name" required/><br/>
-            Date_of_bird:<input type="date" name="date_of_bird" required/><br/>
+            Date of bird:<input type="date" name="date_of_bird" required/><br/>
             Role:<input type="radio" name="role" value="0" checked/>0
                    <input type="radio" name="role" value="1"/>1<br/>
             Status:<input type="radio" name="status" value="0" checked/>0

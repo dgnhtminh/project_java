@@ -31,7 +31,7 @@
         </div>
 
         <div class="content">
-            <h1>Trang User</h1>
+            <h1>Trang user</h1>
             <h3><a href="create-user">Add new a user</a></h3>
             <table border="1px" width="90%">
                 <tr>
@@ -39,7 +39,7 @@
                     <th>Username</th>
                     <th>Password</th>
                     <th>Name</th>
-                    <th>Date_of_bird</th>
+                    <th>Date of bird</th>
                     <th>Role</th>
                     <th>Status</th>
                     <th>Action</th>

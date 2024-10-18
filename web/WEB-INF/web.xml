@@ -116,6 +116,42 @@
         <servlet-name>AdminUpdateUserController</servlet-name>
         <servlet-class>controller.admin.AdminUpdateUserController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AdminCreateCarController</servlet-name>
+        <servlet-class>controller.admin.AdminCreateCarController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminUpdateCarController</servlet-name>
+        <servlet-class>controller.admin.AdminUpdateCarController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminDeleteCarController</servlet-name>
+        <servlet-class>controller.admin.AdminDeleteCarController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminCreateContactController</servlet-name>
+        <servlet-class>controller.admin.AdminCreateContactController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminUpdateContactController</servlet-name>
+        <servlet-class>controller.admin.AdminUpdateContactController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminDeleteContactController</servlet-name>
+        <servlet-class>controller.admin.AdminDeleteContactController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminCreateRentinforController</servlet-name>
+        <servlet-class>controller.admin.AdminCreateRentinforController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminUpdateRentinforController</servlet-name>
+        <servlet-class>controller.admin.AdminUpdateRentinforController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminDeleteRentinforController</servlet-name>
+        <servlet-class>controller.admin.AdminDeleteRentinforController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -223,6 +259,42 @@
     <servlet-mapping>
         <servlet-name>AdminUpdateUserController</servlet-name>
         <url-pattern>/update-user</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminCreateCarController</servlet-name>
+        <url-pattern>/create-car</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminUpdateCarController</servlet-name>
+        <url-pattern>/update-car</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminDeleteCarController</servlet-name>
+        <url-pattern>/delete-car</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminCreateContactController</servlet-name>
+        <url-pattern>/create-contact</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminUpdateContactController</servlet-name>
+        <url-pattern>/update-contact</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminDeleteContactController</servlet-name>
+        <url-pattern>/delete-contact</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminCreateRentinforController</servlet-name>
+        <url-pattern>/create-rentinfor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminUpdateRentinforController</servlet-name>
+        <url-pattern>/update-rentinfor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminDeleteRentinforController</servlet-name>
+        <url-pattern>/delete-rentinfor</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
