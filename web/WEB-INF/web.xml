@@ -89,10 +89,6 @@
         <servlet-class>controller.admin.AdminContactDetailsController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>AdminHomeController</servlet-name>
-        <servlet-class>controller.admin.AdminHomeController</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>CreateUser</servlet-name>
         <servlet-class>controller.admin.CreateUser</servlet-class>
     </servlet>
@@ -239,10 +235,6 @@
     <servlet-mapping>
         <servlet-name>AdminUserController</servlet-name>
         <url-pattern>/admin-user</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>AdminHomeController</servlet-name>
-        <url-pattern>/admin-home</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AdminIndexController</servlet-name>

@@ -112,6 +112,38 @@ public class UserDao extends DBcontext {
             System.out.println(e);
         }
     }
+    
+    public int count(){
+        int count = 0;
+        String sql = "select count(*) from user";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            ResultSet rs = st.executeQuery();
+            
+            if (rs.next()) {
+                count = rs.getInt(1); // Lấy kết quả của COUNT
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return count;
+    }
+    
+//    public String getUser(int id) {
+//        String user = "";
+//        String sql = "SELECT * FROM user WHERE id_user = ?;";
+//        try {
+//            PreparedStatement st = connection.prepareStatement(sql);
+//            st.setInt(1, id);
+//            ResultSet rs = st.executeQuery();
+//            if (rs.next()) {
+//                user = rs.getString(1);
+//            }
+//        } catch (SQLException e) {
+//            System.out.println(e);
+//        }
+//        return user;
+//    }
 
     public static void main(String[] args) {
         UserDao c = new UserDao();

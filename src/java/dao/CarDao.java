@@ -51,7 +51,7 @@ public class CarDao extends DBcontext {
         }
         return list;
     }
-    
+
     //insert car
     public void insert(Car u) {
         String sql = "INSERT INTO car (car_name, seats, fuel, transmission, luggage, img, description, rate, status, color, price, year_of_manufacture, current_address, car_type_id, car_brand_id, rent_id, district_id) \n"
@@ -82,7 +82,7 @@ public class CarDao extends DBcontext {
             System.out.println(e);
         }
     }
-    
+
     //tim 1 car khi co id
     public Car getCarById(int id) {
         String sql = "SELECT * FROM car WHERE id_car = ?;";
@@ -154,18 +154,38 @@ public class CarDao extends DBcontext {
             st.setInt(16, u.getRent_id());
             st.setInt(17, u.getDistrict_id());
             st.setInt(18, u.getId_car());
-            
+
             st.executeUpdate();
-        } catch(SQLException e){
+        } catch (SQLException e) {
             System.out.println(e);
         }
     }
-    
-//    public static void main(String[] args) {
-//        CarDao c = new CarDao();
-//        List<Car> list = c.getAll();
-//        for(Car x : list){
-//            System.out.println(x);
-//        }
-//    }
+
+    public int count() {
+        int count = 0;
+        String sql = "select count(*) from car";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            ResultSet rs = st.executeQuery();
+
+            if (rs.next()) {
+                count = rs.getInt(1); // Lấy kết quả của COUNT
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return count;
+    }
+
+    public static void main(String[] args) {
+        CarDao c = new CarDao();
+        List<Car> list = c.getAll();
+        if (list.isEmpty()) {
+            System.out.println("No cars found in the database.");
+        } else {
+            for (Car x : list) {
+                System.out.println(x.getImg());
+            }
+        }
+    }
 }

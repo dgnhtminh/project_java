@@ -71,7 +71,7 @@ public class AdminUpdateRentinforController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        String rent_id_raw = request.getParameter("rent_id");
+        String rent_id_raw = request.getParameter("id");
         String customer_name = request.getParameter("customer_name");
         String phone = request.getParameter("phone");
         String email = request.getParameter("email");

@@ -137,4 +137,20 @@ public class RentinforDao extends DBcontext {
             System.out.println(e);
         }
     }
+    
+    public int count(){
+        int count = 0;
+        String sql = "select count(*) from rentinfor";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            ResultSet rs = st.executeQuery();
+            
+            if (rs.next()) {
+                count = rs.getInt(1); // Lấy kết quả của COUNT
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return count;
+    }
 }

@@ -116,6 +116,22 @@ public class ContactDao extends DBcontext {
         }
     }
     
+    public int count(){
+        int count = 0;
+        String sql = "select count(*) from contact";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            ResultSet rs = st.executeQuery();
+            
+            if (rs.next()) {
+                count = rs.getInt(1); // Lấy kết quả của COUNT
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return count;
+    }
+    
     public static void main(String[] args) {
         ContactDao c = new ContactDao();
         List<Contact> list = c.getAll();

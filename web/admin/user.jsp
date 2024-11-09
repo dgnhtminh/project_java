@@ -15,56 +15,80 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>User</title>
-        <link rel="stylesheet" href="<%= request.getContextPath()%>/css/admin.css">
+        <link rel="stylesheet" href= "https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css" >
+        <link rel="stylesheet" href="admin/style_admin.css"/>
         <script type="text/javascript">
-            function doDelete(id){
-                if(confirm("Are you sure to delete a user ?")){
-                    window.location="delete-user?id=" +id;
+            function doDelete(id) {
+                if (confirm("Are you sure to delete a user ?")) {
+                    window.location = "delete-user?id=" + id;
                 }
             }
         </script>
     </head>
 
     <body>
-        <div class="sidebar">
+        <div>
             <%@include file="sider.jsp"%>
         </div>
 
-        <div class="content">
-            <h1>Trang user</h1>
-            <h3><a href="create-user">Add new a user</a></h3>
-            <table border="1px" width="90%">
-                <tr>
-                    <th>Id_user</th>
-                    <th>Username</th>
-                    <th>Password</th>
-                    <th>Name</th>
-                    <th>Date of bird</th>
-                    <th>Role</th>
-                    <th>Status</th>
-                    <th>Action</th>
-                </tr>
-                <% List<User> users = (List<User>)request.getAttribute("data"); %>
-                <% for(User x : users){
-                %>
-                <tr>
-                    <td><%= x.getId_user() %></td>
-                    <td><%= x.getUsername() %></td>
-                    <td><%= x.getPassword() %></td>
-                    <td><%= x.getName() %></td>
-                    <td><%= x.getDate() %></td>
-                    <td><%= x.getRole() %></td>
-                    <td><%= x.getStatus() %></td>
-                    <tD>
-                        <a href="update-user?id=<%= x.getId_user() %>">Update</a>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="#" onclick="doDelete(<%= x.getId_user() %>)">Delete</a>
-                    </tD>
-                </tr>
-                <%
-                   }
-                %>
-            </table>
+        <div class="main-content">
+            <header>
+                <h2>
+                    <label>
+                        <span class=""></span>
+                    </label>
+
+                    Users
+                </h2>
+
+                <div class="user-wrapper">
+                    <img src="admin/user.png" width="50px" height="50px" alt=""/>
+                    <div>
+                        <h4>John Doe</h4>
+                        <small>Super admin</small>
+                    </div>
+                </div>
+            </header>
+
+            <main>
+
+                <button class="add-btn"><a href="create-user"><h4>Add a new user</h4></a></button>
+                <table border="1px" width="90%">
+                    <tr>
+                        <th>Id_user</th>
+                        <th>Username</th>
+                        <th>Password</th>
+                        <th>Name</th>
+                        <th>Date of bird</th>
+                        <th>Role</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                    <% List<User> users = (List<User>) request.getAttribute("data"); %>
+                    <% for (User x : users) {
+                    %>
+                    <tr>
+                        <td><%= x.getId_user()%></td>
+                        <td><%= x.getUsername()%></td>
+                        <td><%= x.getPassword()%></td>
+                        <td><%= x.getName()%></td>
+                        <td><%= x.getDate()%></td>
+                        <td><%= x.getRole()%></td>
+                        <td><%= x.getStatus()%></td>
+                        <tD>
+                            <button class="update-btn"><a href="update-user?id=<%= x.getId_user()%>">Update</a></button>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button class="delete-btn"><a href="#" onclick="doDelete(<%= x.getId_user()%>)">Delete</a></button>
+                        </tD>
+                    </tr>
+                    <%
+                        }
+                    %>
+                </table>
+
+            </main>
         </div>
+
+        
     </body>
 </html>
 

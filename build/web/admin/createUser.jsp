@@ -10,20 +10,40 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Create User</title>
+        <link rel="stylesheet" href="admin/admin-create.css"/>
     </head>
     <body>
-        <h1>Add new a user</h1>
-        <form action="create-user" method="post">
-<!--            Id_user:<input type="number" name="id"/><br/>-->
-            Username:<input type="text" name="username" required/><br/>
-            Password:<input type="text" name="password" required/><br/>
-            Name:<input type="text" name="name" required/><br/>
-            Date of bird:<input type="date" name="date_of_bird" required/><br/>
-            Role:<input type="radio" name="role" value="0" checked/>0
-                   <input type="radio" name="role" value="1"/>1<br/>
-            Status:<input type="radio" name="status" value="0" checked/>0
-                   <input type="radio" name="status" value="1"/>1<br/>
-            <input type="submit" value="Create"/>
-        </form>
+        <div class="container">
+            <h1>Add a new user</h1>
+            <form action="create-user" method="post">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required/>
+
+                <label for="password">Password:</label>
+                <input type="text" id="password" name="password" required/>
+
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required/>
+
+                <label for="date_of_bird">Date of birth:</label>
+                <input type="date" id="date_of_bird" name="date_of_bird" required/>
+
+                <label>Role:</label>
+                <div class="radio-group">
+                    <input type="radio" id="role0" name="role" value="0" checked/>0
+                    <input type="radio" id="role1" name="role" value="1"/>1
+                </div>
+
+                <label>Status:</label>
+                <div class="radio-group">
+                    <input type="radio" id="status0" name="status" value="0" checked/>0
+                    <input type="radio" id="status1" name="status" value="1"/>1
+                </div>
+
+                <button type="submit">Create</button>
+            </form>
+        </div>
     </body>
+
+
 </html>

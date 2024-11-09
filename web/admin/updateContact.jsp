@@ -11,19 +11,40 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Update contact</title>
+        <link rel="stylesheet" href="admin/admin-create.css"/>
     </head>
     <body>
-        <h1>Update a contact</h1>
-        <% Contact u = (Contact)request.getAttribute("contact"); %>
-        <form action="update-user" method="post">   
-            Id:<input type="number" name="id" readonly value="<%= u.getId() %>" /><br/>
-            Username:<input type="text" name="username" value="<%= u.getUsername() %>"/><br/>
-            Email:<input type="text" name="email" value="<%= u.getEmail()%>"/><br/>
-            Subject:<input type="text" name="subject" value="<%= u.getSubject()%>"/><br/>
-            Message:<input type="text" name="message" value="<%= u.getMessage()%>"/><br/>
-            Status:<input type="number" name="status" min="0" max="1" step="1" value="<%= u.getStatus() %>"/><br/>
-            Time sent:<input type="date" name="time_sent" value="<%= u.getTime_sent()%>"/><br/>
-            <input type="submit" value="Update"/>
-        </form>
+        <div class="container">
+            <h1>Update Contact</h1>
+            <% Contact u = (Contact) request.getAttribute("contact");%>
+            <form action="update-contact" method="post">   
+                <label for="id">ID:</label>
+                <input type="text" id="id" name="id" readonly value="<%= u.getId()%>" />
+
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" value="<%= u.getUsername()%>" />
+
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email" value="<%= u.getEmail()%>" />
+
+                <label for="subject">Subject:</label>
+                <input type="text" id="subject" name="subject" value="<%= u.getSubject()%>" />
+
+                <label for="message">Message:</label>
+                <input type="text" id="message" name="message" value="<%= u.getMessage()%>" />
+
+                <label>Status:</label>
+                <div class="radio-group">
+                    <input type="radio" id="status0" name="status" value="0" <%= u.getStatus() == 0 ? "checked" : ""%> />0
+                    <input type="radio" id="status1" name="status" value="1" <%= u.getStatus() == 1 ? "checked" : ""%> />1
+                </div>
+
+                <label for="time_sent">Time Sent:</label>
+                <input type="date" id="time_sent" name="time_sent" value="<%= u.getTime_sent()%>" />
+
+                <button type="submit">Update</button>
+            </form>
+        </div>
     </body>
+
 </html>
